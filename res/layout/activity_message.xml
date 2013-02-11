@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessageActivity" >
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:hint="@+string/email"
+        android:inputType="textEmailAddress"
+         >
+
+        <requestFocus />
+    </EditText>
+    <!-- 
+    <EditText
+        android:id="@+id/myemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@+string/myemail"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/email"
+         />
+
+ -->
+ 
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/email"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:hint="@+string/message" 
+        android:gravity="top"  />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message"
+   		android:onClick="doSaveMessage"
+        android:text="Done!" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My Secret Valentine</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_grid">Valentine\'s Images</string>
+    <string name="my_secret_valentine">My Secret\nValentine</string>
+    <string name="title_activity_splash">My Secret Valentine</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="title_activity_wizard">wizard</string>
+    <string name="image_selected">Image Selected!\n Now write your message, my dear</string>
+    <string name="title_activity_message">Write your Message, my dear</string>
+    <string name="write_message">Write your Message,\n my dear</string>
+    <string name="select_image">Please, select an image</string>
+    <string name="send_button_unhappy">Not quite ready, yet</string>
+    <string name="send_button_happy">Send all\nyour love</string>
+    <string name="email">Email of your loved one</string>
+    <string name="myemail">Your email or leave it empy</string>
+    <string name="message">Type the message you want to send</string>
+    <string name="ok">OK!</string>
+    <string name="almost_there">Almost There!</string>
+    <string name="swoooosh">Swoooosh!!</string>
+    <string name="sending">Sending&#8230;</string>
+    <string name="thank_you">Thank you!\nHave a lovely Valentine\'s Day!</string>
+    <string name="title_activity_thankyou">ThankyouActivity</string>
+    <string name="again">Again?</string>
+    <string name="bye">Bye!</string>
+    <string name="cheeky">Uuuuuuh! &#8230;Cheeky!</string>
+    <string name="iamaman">I\'m a man, get me out of here!</string>
+    <string name="select_image_title">Swipe to browse images, tap to select</string>
+    <string name="menu_gallery">Access your Gallery</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
+	<string name="select">Select</string>
+	<string name="open_gallery">Open Gallery</string>
+</resources>
