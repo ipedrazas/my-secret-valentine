@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Secret Valentine</string>
+    <string name="menu_settings">Ajustes</string>
+    <string name="title_activity_grid">Imágenes de Valentin</string>
+    <string name="my_secret_valentine">Mi San Valentín</string>
+    <string name="title_activity_splash">My Secret Valentine</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="title_activity_wizard">wizard</string>
+    <string name="image_selected">Preciosa!</string>
+    <string name="message_set">Genial!!</string>
+    <string name="title_activity_message">Mensaje para tu Valentin</string>
+    <string name="write_message">Escribe tu mensaje</string>
+    <string name="select_image">Elige una imagen</string>
+    <string name="send_button_unhappy">Aún falta un poquillo</string>
+    <string name="send_button_happy">Envía\nTodo tu amor</string>
+    <string name="email">Email de tu Valentin</string>
+    <string name="message">Escribe el mensaje que quieras mandar</string>
+    <string name="ok">OK!</string>
+    <string name="almost_there">Casi Casi!</string>
+    <string name="swoooosh">Swoooosh!!</string>
+    <string name="sending">Enviando&#8230;</string>
+    <string name="thank_you">Mensaje Enviado!\nDisfruta del día de\n San Valentin!</string>
+    <string name="title_activity_thankyou">ThankyouActivity</string>
+    <string name="again">Otro mensaje tal vez?</string>
+    <string name="bye">Hasta Pronto!</string>
+    <string name="cheeky">Uuuuuuh! &#8230;Frescales!</string>
+    <string name="iamaman">Toca la imagen</string>
+    <string name="select_image_title">Arrastra y toca para seleccionar</string>
+    <string name="menu_gallery">Accede a tu Galería</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
+	<string name="select">Seleccionar</string>
+	<string name="open_gallery">Ir a tu Galería</string>
+	<string name="plus">+</string>
+	<string name="save">Guardar</string>
+	<string name="image">Elige la imagen a enviar</string>
+	<string name="error">Oooops, ha ocurrido un error!</string>
+</resources>

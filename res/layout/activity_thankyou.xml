@@ -14,31 +14,21 @@
         android:textColor="@color/dark_fucsia"
         android:textSize="25sp"
          />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        
-        >
-        
+
      <Button
         android:id="@+id/again"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/again"
-        android:layout_weight="1"
         android:background="@color/dark_fucsia"
         android:textColor="@color/white"
         android:onClick="doAgain"
-        android:layout_marginRight="1dp"
-        android:layout_marginLeft="1dp"
         android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:minHeight="50dp"
         />
 
    
-
-    </LinearLayout>
 
   
 

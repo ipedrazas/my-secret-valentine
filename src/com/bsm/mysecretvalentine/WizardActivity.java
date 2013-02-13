@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bsm.mysecretvalentine.om.MessageService;
 import com.bsm.mysecretvalentine.util.L;
@@ -25,6 +26,8 @@ import com.bsm.mysecretvalentine.util.L;
  */
 public class WizardActivity extends Activity {
 	
+	TextView messageText;
+	TextView imageText;
 	TextView send;
 	TextView swoooosh;
 	ImageView image_ok;
@@ -41,6 +44,8 @@ public class WizardActivity extends Activity {
                                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_wizard);
         send = (TextView) findViewById(R.id.send_message);
+        imageText = (TextView) findViewById(R.id.textImage);
+        messageText = (TextView) findViewById(R.id.textMessage);
         swoooosh = (TextView) findViewById(R.id.swoooosh);
         image_ok = (ImageView) findViewById(R.id.confirmation_image);
         msg_ok = (ImageView) findViewById(R.id.confirmation_message);
@@ -52,21 +57,26 @@ public class WizardActivity extends Activity {
 	
 	private void initialiseControls(){
 		SharedPreferences preferences = getSharedPreferences("MYSECRETVALENTINE", android.content.Context.MODE_PRIVATE);
-		int image_id = preferences.getInt("IMAGE_ID", -1);
-		int message_id = preferences.getInt("MESSAGE_ID", -1);
-
-		
-		if(image_id>-1){
+		int status = preferences.getInt("STATUS", 0);
+		if(status==1){
 			send.setText(R.string.almost_there);
 			image_ok.setVisibility(ImageView.VISIBLE);
+			imageText.setText(R.string.image_selected);
 		}
-		if(message_id>-1){
-			ImageView img = (ImageView) findViewById(R.id.letter);
-			img.setImageResource(R.drawable.ic_letter_heart);
+		if(status==3){
+			send.setText(R.string.almost_there);
+			msg_ok.setVisibility(ImageView.VISIBLE);
+			messageText.setText(R.string.message_set);
+		}
+		if(status==4){
+			image_ok.setVisibility(ImageView.VISIBLE);
+			msg_ok.setVisibility(ImageView.VISIBLE);
+			messageText.setText(R.string.message_set);
+			imageText.setText(R.string.image_selected);
+			letter.setImageResource(R.drawable.ic_letter_heart);
 			send.setText(R.string.send_button_happy);
 			msg_ok.setVisibility(ImageView.VISIBLE);
 		}
-		
 	}
 	
 	@Override
@@ -92,9 +102,8 @@ public class WizardActivity extends Activity {
 	
 	public void doSend(View v){
 		SharedPreferences preferences = getSharedPreferences("MYSECRETVALENTINE", android.content.Context.MODE_PRIVATE);
-		int image_id = preferences.getInt("IMAGE_ID", -1);
-		int message_id = preferences.getInt("MESSAGE_ID", -1);
-		if(message_id>-1 && image_id>-1){
+		int status = preferences.getInt("STATUS", 0);
+		if(status==4){
 			moveLetterOut();
 			send.setVisibility(TextView.GONE);
 			swoooosh.setVisibility(TextView.VISIBLE);
@@ -146,12 +155,11 @@ public class WizardActivity extends Activity {
 		
 	}
 	
-	private class SendMessage extends AsyncTask<Void, Void, String[]> {
+	private class SendMessage extends AsyncTask<Void, Void, Boolean> {
 		@Override
-	    protected String[] doInBackground(Void...params) {
-			String msg = null;
-			MessageService.send(WizardActivity.this);
-			return null;
+	    protected Boolean doInBackground(Void...params) {
+			return MessageService.send(WizardActivity.this);
+				
 		}
 		 @Override
 		    protected void onPreExecute() {
@@ -160,11 +168,17 @@ public class WizardActivity extends Activity {
 		    }
 
 		    @Override
-		    protected void onPostExecute(String[] result){
+		    protected void onPostExecute(Boolean result){
 		    	super.onPostExecute(result);
 		    	mProgressDialog.dismiss();
-		    	doThankYou();
-		    	
+		    	if(result.booleanValue()){
+		    		doThankYou();
+		    	}else{
+		    		initialiseControls();
+		    		String msg = getString(R.string.error);
+		    		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+		    		
+		    	}		    	
 		    }		
 	}
 

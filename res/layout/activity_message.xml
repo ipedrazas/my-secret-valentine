@@ -5,30 +5,34 @@
     tools:context=".MessageActivity" >
 
 
+
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:ems="10"
+        android:textSize="25sp"
         android:hint="@+string/email"
         android:inputType="textEmailAddress"
          >
-
         <requestFocus />
     </EditText>
-    <!-- 
-    <EditText
-        android:id="@+id/myemail"
-        android:layout_width="match_parent"
+    
+    <Button
+        android:id="@+id/addContact"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@+string/myemail"
-        android:inputType="textEmailAddress"
-        android:layout_below="@+id/email"
-         />
-
- -->
+        android:layout_toRightOf="@+id/email"
+        android:text="@+string/plus" 
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:paddingRight="10dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/dark_fucsia"
+        android:onClick="doLaunchContactPicker"
+        />
  
     <EditText
         android:id="@+id/message"
@@ -37,6 +41,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/email"
         android:ems="10"
+        android:textSize="28sp"
         android:inputType="textMultiLine"
         android:lines="6"
         android:hint="@+string/message" 
@@ -45,9 +50,14 @@
     <Button
         android:id="@+id/done"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        
         android:layout_below="@+id/message"
    		android:onClick="doSaveMessage"
-        android:text="Done!" />
+        android:text="@string/save" 
+        android:textSize="25sp"
+        android:layout_height="50dp"
+        android:background="@color/dark_fucsia"
+        android:textColor="@color/white"/>
+
 
 </RelativeLayout>

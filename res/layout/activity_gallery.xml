@@ -8,14 +8,20 @@
         android:id="@+id/ImageView" 
         android:layout_width="wrap_content"
 		android:layout_height="wrap_content" 
-		android:layout_centerInParent="true" />
-    <Button 
-        android:layout_width="wrap_content" 
+		android:layout_centerInParent="true"
+		android:contentDescription="@string/image" />
+
+    <Button
         android:id="@+id/Upload"
-        android:layout_height="wrap_content" 
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true" 
-        android:text="Select" />
-    
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select"
+        android:layout_alignParentBottom="true"
+        android:background="@color/dark_fucsia"
+        android:textColor="@color/white"
+        android:onClick="openGallery"
+        android:textSize="25sp"
+        android:minHeight="50dp"
+        />
 
 </RelativeLayout>

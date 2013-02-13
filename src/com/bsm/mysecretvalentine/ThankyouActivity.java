@@ -29,7 +29,7 @@ public class ThankyouActivity extends Activity {
         editor.clear();
         editor.commit();
         
-		Intent i = new Intent(getApplicationContext(), WizardActivity.class);
+		Intent i = new Intent(getApplicationContext(), SplashActivity.class);
     	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         finish();

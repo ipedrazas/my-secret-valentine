@@ -30,7 +30,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -124,7 +123,8 @@ public class GalleryActivity extends Activity {
 	 
 	 public String getPath(Uri uri) {
 	        String[] projection = { MediaStore.Images.Media.DATA };
-	        Cursor cursor = managedQuery(uri, projection, null, null, null);
+	        @SuppressWarnings("deprecation")
+			Cursor cursor = managedQuery(uri, projection, null, null, null);
 	        if (cursor != null) {
 	            // HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
 	            // THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
@@ -164,12 +164,7 @@ public class GalleryActivity extends Activity {
 	        imgView.setImageBitmap(bitmap);
 
 	    }
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_gallery, menu);
-		return true;
-	}
+	 
 	
 	class ImageUploadTask extends AsyncTask <Void, Void, String>{
         @Override
@@ -220,7 +215,6 @@ public class GalleryActivity extends Activity {
             try {
                 if (dialog.isShowing())
                     dialog.dismiss();
-
                 if (sResponse != null) {
                 	L.d(sResponse);
                     JSONObject JResponse = new JSONObject(sResponse);
@@ -228,6 +222,8 @@ public class GalleryActivity extends Activity {
                     SharedPreferences sp = getSharedPreferences("MYSECRETVALENTINE", MODE_PRIVATE);
 			        SharedPreferences.Editor editor = sp.edit();
                     editor.putString("IMG_URL", message);
+                    editor.putInt("IMAGE_ID", 1);
+                    editor.putInt("STATUS", 1);
                     editor.commit();
                     Intent i = new Intent(getApplicationContext(), WizardActivity.class);
 			    	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

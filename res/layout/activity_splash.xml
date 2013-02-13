@@ -19,7 +19,7 @@
         android:keepScreenOn="true"
         android:text="@string/my_secret_valentine"
         android:textColor="#BA0000"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:textStyle="bold"
          />
 
@@ -27,8 +27,11 @@
         android:id="@+id/imaman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/iamaman"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="25sp"
+        android:text="@string/iamaman"
+        />
 
 </FrameLayout>

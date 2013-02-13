@@ -26,10 +26,7 @@ public class SplashActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
                                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        SharedPreferences preferences = getSharedPreferences("MYSECRETVALENTINE", android.content.Context.MODE_PRIVATE);
-        Editor editor = preferences.edit();
-        editor.clear();
-        editor.commit();
+        clear();
         
 		setContentView(R.layout.activity_splash);
 		TextView title = (TextView) findViewById(R.id.fullscreen_content);
@@ -45,12 +42,23 @@ public class SplashActivity extends Activity {
 				Intent i = new Intent(getApplicationContext(), WizardActivity.class);
 		    	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		        startActivity(i);
-		        finish();
 			}
 		});
 
-
 	}
+	
 
+	private void clear(){
+		 SharedPreferences preferences = getSharedPreferences("MYSECRETVALENTINE", android.content.Context.MODE_PRIVATE);
+	        Editor editor = preferences.edit();
+	        editor.clear();
+	        editor.commit();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		clear();
+	}
 	
 }
