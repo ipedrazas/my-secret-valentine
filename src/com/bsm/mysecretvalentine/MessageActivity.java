@@ -48,20 +48,18 @@ public class MessageActivity extends Activity {
 		if(this.isReady()){
 			SharedPreferences sp = getSharedPreferences("MYSECRETVALENTINE", MODE_PRIVATE);
 			SharedPreferences.Editor editor = sp.edit();
-			int status = sp.getInt("STATUS", 0);
-			editor.putInt("STATUS", status + 3);
 			String sEmail = email.getText().toString();
 			editor.putString("MSG_TO", sEmail);
-			//        String sFrom = from.getText().toString();
 			String sFrom = getDeviceName(sEmail);
-			if(!sFrom.isEmpty())
+			if(!sFrom.isEmpty()){
 				editor.putString("MSG_FROM", sFrom);
-			String text = msg.getText().toString();
-			if (!text.isEmpty())
-				editor.putString("MSG_TEXT", text);
-	
-			editor.commit();        
-			
+				String text = msg.getText().toString();
+				if (!text.isEmpty()){
+					editor.putString("MSG_TEXT", text);
+					editor.putInt("MSG_ID", 1);
+				}
+			}
+			editor.commit();
 		}
 		Intent i = new Intent(getApplicationContext(), WizardActivity.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

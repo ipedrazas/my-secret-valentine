@@ -57,18 +57,20 @@ public class WizardActivity extends Activity {
 	
 	private void initialiseControls(){
 		SharedPreferences preferences = getSharedPreferences("MYSECRETVALENTINE", android.content.Context.MODE_PRIVATE);
-		int status = preferences.getInt("STATUS", 0);
-		if(status==1){
+		int imageId = preferences.getInt("IMAGE_ID", 0);
+		int msgId = preferences.getInt("MSG_ID", 0);
+		if(imageId==1){
 			send.setText(R.string.almost_there);
 			image_ok.setVisibility(ImageView.VISIBLE);
 			imageText.setText(R.string.image_selected);
 		}
-		if(status==3){
+		if(msgId==1){
 			send.setText(R.string.almost_there);
 			msg_ok.setVisibility(ImageView.VISIBLE);
 			messageText.setText(R.string.message_set);
 		}
-		if(status==4){
+		
+		if(msgId==1 && imageId==1){
 			image_ok.setVisibility(ImageView.VISIBLE);
 			msg_ok.setVisibility(ImageView.VISIBLE);
 			messageText.setText(R.string.message_set);
@@ -102,8 +104,9 @@ public class WizardActivity extends Activity {
 	
 	public void doSend(View v){
 		SharedPreferences preferences = getSharedPreferences("MYSECRETVALENTINE", android.content.Context.MODE_PRIVATE);
-		int status = preferences.getInt("STATUS", 0);
-		if(status==4){
+		int imageId = preferences.getInt("IMAGE_ID", 0);
+		int msgId = preferences.getInt("MSG_ID", 0);
+		if(msgId==1 && imageId==1){
 			moveLetterOut();
 			send.setVisibility(TextView.GONE);
 			swoooosh.setVisibility(TextView.VISIBLE);

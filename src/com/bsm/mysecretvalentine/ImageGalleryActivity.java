@@ -87,13 +87,12 @@ public class ImageGalleryActivity extends Activity {
 	    			Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 	    			SharedPreferences sp = getSharedPreferences("MYSECRETVALENTINE", MODE_PRIVATE);
 	    	        SharedPreferences.Editor editor = sp.edit();
-	    	        editor.putInt("IMAGE_ID", ImageGalleryActivity.this.pos);
-	    	        int status = sp.getInt("STATUS", 0);
-	    	        editor.putInt("STATUS", status + 1);
+	    	        editor.putInt("IMAGE_ID", 1);
 	    	        L.d("Position: " + ImageGalleryActivity.this.pos);
 	    	        int pos = ImageGalleryActivity.this.pos - 1;
 	    	        editor.putInt("MSG_IMG", ImagesArray.mThumbIds[pos]);
 	    	        editor.putString("IMG_URL", ImagesArray.mURLSs[pos]);
+	    	        L.d("Image: " + ImagesArray.mURLSs[pos]);
 	    	        editor.commit();  
 	    			Intent i = new Intent(getApplicationContext(), WizardActivity.class);
 	    	    	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

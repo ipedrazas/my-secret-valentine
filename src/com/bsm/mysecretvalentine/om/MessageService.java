@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.bsm.mysecretvalentine.ImagesArray;
 import com.bsm.mysecretvalentine.util.ConnectionException;
@@ -42,6 +43,7 @@ public class MessageService {
 			
 		} catch (NotAuthorisedException e) {
 			e.printStackTrace();
+			Log.d("MessageService", map.toString());
 		} catch (ConnectionException e) {
 			e.printStackTrace();
 		} catch (JSONException e) {

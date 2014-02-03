@@ -3,9 +3,14 @@ package com.bsm.mysecretvalentine;
 public class ImagesArray {
 
 	public static Integer[] mThumbIds = {
-    		R.drawable.ic_london, R.drawable.ic_faro, R.drawable.ic_bristol, 
-    		R.drawable.ic_thailand_beach, R.drawable.ic_my_mountain, R.drawable.ic_friends,
-    		R.drawable.ic_bicycle, R.drawable.ic_elephant
+    		R.drawable.ic_london, 
+    		R.drawable.ic_faro, 
+    		R.drawable.ic_bristol, 
+    		R.drawable.ic_thailand_beach, 
+    		R.drawable.ic_my_mountain, 
+    		R.drawable.ic_friends,
+    		R.drawable.ic_bicycle, 
+    		R.drawable.ic_elephant
     };
 	
 	public static String[] mURLSs = {

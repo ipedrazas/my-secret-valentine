@@ -45,7 +45,8 @@
         android:inputType="textMultiLine"
         android:lines="6"
         android:hint="@+string/message" 
-        android:gravity="top"  />
+        android:gravity="top"  
+        android:imeOptions="actionDone"/>
 
     <Button
         android:id="@+id/done"
